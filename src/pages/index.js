@@ -66,9 +66,10 @@ class IndexPage extends Component {
 
   formatCurrency(val) {
     if (!val) return;
-    return new Intl.NumberFormat("en-IN", {
-      maximumSignificantDigits: 3
-    }).format(val);
+    return parseFloat(val)
+      .toFixed(1)
+      .replace(/(\d)(?=(\d{3})+\.)/g, "$1,")
+      .replace(/(\.[0-9]*?)0+/g, "");
   }
 
   nextStep() {
