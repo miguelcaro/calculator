@@ -33,10 +33,15 @@ const menuCss = css`
   margin: 0;
 `;
 
-const menuItemCss = css`
+const linkCss = css`
+  color: #c1c1c1;
   margin-left: 15px;
+  text-decoration: none;
   &:first-child {
     margin-left: 0;
+  }
+  &:hover {
+    text-decoration: underline;
   }
 `;
 
@@ -52,13 +57,25 @@ const Footer = () => (
         <img src={logo} alt="./logo-white.png" />
       </div>
       <div className={navigationCss}>
-        <p className={copyrightCss}>© 2017 Beyond Finance. All rights reserved.</p>
+        <p className={copyrightCss}>
+          © 2017 Beyond Finance. All rights reserved.
+        </p>
         <nav className={menuCss}>
-          <a className={menuItemCss}>Home</a>
-          <a className={menuItemCss}>About Us</a>
-          <a className={menuItemCss}>Free Evaluation</a>
-          <a className={menuItemCss}>Privacy Policy</a>
-          <a className={menuItemCss}>Terms of Use</a>
+          <Link to="#" className={linkCss}>
+            Home
+          </Link>
+          <Link to="#" className={linkCss}>
+            About Us
+          </Link>
+          <Link to="#" className={linkCss}>
+            Free Evaluation
+          </Link>
+          <Link to="#" className={linkCss}>
+            Privacy Policy
+          </Link>
+          <Link to="#" className={linkCss}>
+            Terms of Use
+          </Link>
         </nav>
       </div>
       <p className={noteCss}>
