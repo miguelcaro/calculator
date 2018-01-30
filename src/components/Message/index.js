@@ -14,6 +14,13 @@ export default styled("div")`
     text-align: center;
   }
   &.step1 {
+    .content {
+      padding-top: 19px;
+    }
+    .icon {
+      font-size: 127px;
+      margin-bottom: 19px;
+    }
     p {
       font-size: 26px;
       font-weight: 600;
@@ -31,7 +38,8 @@ export default styled("div")`
     }
   }
   &.step2,
-  &.step3 {
+  &.step3,
+  &.step4 {
     border-radius: 12px;
     padding: 31px 26px 67px 28px;
     .content {
@@ -43,9 +51,11 @@ export default styled("div")`
       padding: 0;
       position: relative;
       .icon {
+        bottom: 0;
         font-size: 332px;
         left: 0;
         position: absolute;
+        right: 0;
         top: 0;
       }
       p {
@@ -77,6 +87,34 @@ export default styled("div")`
       }
       span {
         margin-top: 9px;
+      }
+      small {
+        margin-top: 28px;
+      }
+    }
+  }
+  &.step4 {
+    padding-top: 48px;
+    .content {
+      p {
+        font-size: 24px;
+        letter-spacing: 0.47px;
+        line-height: 1.4608333333;
+        padding: 90px 20px 50px 60px;
+      }
+      span {
+        display: inline;
+        font-size: 37px;
+        font-weight: 400;
+        letter-spacing: 0.66px;
+        line-height: 0.9475675676;
+        &.percentage {
+          display: block;
+          font-size: 65px;
+          letter-spacing: 1.27px;
+          line-height: 0.5393846154;
+          margin: 0 0 12px;
+        }
       }
       small {
         margin-top: 28px;

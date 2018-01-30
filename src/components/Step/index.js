@@ -75,6 +75,9 @@ export default styled("div")`
       padding: 32px 0 77px;
       margin: 0 -33px;
       position: relative;
+      .icon {
+        left: 29px;
+      }
       .form-resume {
         color: #ad5091;
         font-size: 115.5px;

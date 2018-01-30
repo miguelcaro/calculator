@@ -191,26 +191,5 @@ template {
 [hidden] {
   display: none;
 }
-.icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
-
-.icon-starts-bubble {
-  width: 0.9765625em;
-}
-
-.icon-moneybag {
-  width: 0.98828125em;
-}
-
-.icon-cards {
-  width: 1.2548828125em;
-}
-
 `
 

@@ -4,7 +4,8 @@ import Content from "../components/Content";
 import Step from "../components/Step";
 import Button from "../components/Button";
 import Input from "../components/Input";
-import Message from "../components/Message";
+import Icon from "../components/Icon";
+import Messages from "../components/Messages";
 
 class IndexPage extends Component {
   constructor() {
@@ -81,33 +82,27 @@ class IndexPage extends Component {
     const { step, form } = this.state;
     return (
       <div>
-        <Content>
-          <div className="tab">
-            TALK TO A CERTIFIED DEBT SPECIALIST
-            <span className="tab__number">1-800-XXX-XXXX</span>
-          </div>
-          <h2 className="title">Savings Calculator</h2>
+        <Content
+          title={"Savings Calculator"}
+          tabText={"TALK TO A CERTIFIED DEBT SPECIALIST"}
+          tabPhoneNumber={"1-800-XXX-XXXX"}
+        >
           <div>
             <Step className={step === 1 && "current"}>
-              <svg className="icon icon-cards">
-                <use xlinkHref="#icon-cards" />
-              </svg>
+              <Icon iconClass={"cards"} />
               <h1 className="title">What is your current debt amount?</h1>
               {step === 1 && (
                 <div className="form">
-                  <Input className="currency">
-                    <input
-                      type="text"
-                      value={form.debtAmount}
-                      onChange={this.setDebtAmount}
-                    />
-                  </Input>
+                  <Input
+                    type="currency"
+                    value={form.debtAmount}
+                    onChangeEvent={this.setDebtAmount}
+                  />
                   <Button
                     disabled={form.debtAmount === ""}
-                    onClick={this.nextStep}
-                  >
-                    Next
-                  </Button>
+                    onClickEvent={this.nextStep}
+                    text={"Next"}
+                  />
                 </div>
               )}
               {step !== 1 &&
@@ -118,32 +113,27 @@ class IndexPage extends Component {
                 )}
             </Step>
             <Step className={step === 2 && "current"}>
-              <svg className="icon icon-percentage">
-                <use xlinkHref="#icon-percentage" />
-              </svg>
+              <Icon iconClass={"percentage"} />
               <h1 className="title">
                 What is your estimated average annual interest rate?
               </h1>
               {step === 2 && (
                 <div className="form">
-                  <Input className="percentage">
-                    <input
-                      type="text"
-                      value={form.annualInterestRate}
-                      placeholder="22"
-                      onChange={this.setAnnualInterestRate}
-                    />
-                  </Input>
+                  <Input
+                    type="percentage"
+                    value={form.annualInterestRate}
+                    placeholder="22"
+                    onChangeEvent={this.setAnnualInterestRate}
+                  />
                   <p className="note">
                     The national average is 22%
                     <br /> If yours is different please change above.
                   </p>
                   <Button
                     disabled={form.annualInterestRate === ""}
-                    onClick={this.nextStep}
-                  >
-                    Next
-                  </Button>
+                    onClickEvent={this.nextStep}
+                    text={"Next"}
+                  />
                 </div>
               )}
               {step !== 2 &&
@@ -154,27 +144,22 @@ class IndexPage extends Component {
                 )}
             </Step>
             <Step className={step === 3 && "current"}>
-              <svg className="icon icon-payment">
-                <use xlinkHref="#icon-payment" />
-              </svg>
+              <Icon iconClass={"payment"} />
               <h1 className="title">
                 What’s your current monthly minimun payment?
               </h1>
               {step === 3 && (
                 <div className="form">
-                  <Input className="currency">
-                    <input
-                      type="text"
-                      value={form.monthlyMinimunPayment}
-                      onChange={this.setMonthlyMinimunPayment}
-                    />
-                  </Input>
+                  <Input
+                    type="currency"
+                    value={form.monthlyMinimunPayment}
+                    onChangeEvent={this.setMonthlyMinimunPayment}
+                  />
                   <Button
                     disabled={form.monthlyMinimunPayment === ""}
-                    onClick={this.nextStep}
-                  >
-                    Next
-                  </Button>
+                    onClickEvent={this.nextStep}
+                    text={"Next"}
+                  />
                 </div>
               )}
               {step !== 3 &&
@@ -187,9 +172,7 @@ class IndexPage extends Component {
             </Step>
             <Step className={step === 4 && "current"}>
               <div className="box">
-                <svg className="icon icon-moneybag">
-                  <use xlinkHref="#icon-moneybag" />
-                </svg>
+                <Icon iconClass={"moneybag"} />
                 <h1 className="title">TOTAL SAVINGS</h1>
                 <h2 className="subtitle">with Beyond{step === 4 && ":"}</h2>
                 {step === 4 && (
@@ -197,69 +180,12 @@ class IndexPage extends Component {
                     <small>$</small> x,xxx.xx
                   </p>
                 )}
-                {step === 4 && <Button>Get Started Now</Button>}
+                {step === 4 && <Button text={"Get Started Now"} />}
               </div>
             </Step>
           </div>
         </Content>
-        {step === 1 && (
-          <Message className="step1">
-            <div className="content">
-              <p>
-                We typically <br /> cur balances owed
-                <span>in half</span>
-                for our clients.
-              </p>
-            </div>
-          </Message>
-        )}
-        {step === 2 && (
-          <Message className="step2">
-            <div className="content">
-              <svg className="icon icon-quote-bubble">
-                <use xlinkHref="#icon-quote-bubble" />
-              </svg>
-              <p>
-                I was
-                <span>worried at first, </span>
-                but they were so helpful and
-                <span>eased my mind</span>
-                and helped me trhough <br /> the whole process.
-                <br />
-                <small>B.L.</small>
-              </p>
-            </div>
-          </Message>
-        )}
-        {step === 3 && (
-          <Message className="step3">
-            <div className="content">
-              <svg className="icon icon-quote-bubble">
-                <use xlinkHref="#icon-quote-bubble" />
-              </svg>
-              <p>
-                Because of
-                <br />
-                this company, I am
-                <span>debt-free.</span>
-                <small>G.P.</small>
-              </p>
-            </div>
-          </Message>
-        )}
-        {step === 4 && (
-          <Message className="step4">
-            <div className="content">
-              <h1>
-                We typically <br /> cur balances owed
-              </h1>
-              <h2>
-                in half
-                <small>for our clients.</small>
-              </h2>
-            </div>
-          </Message>
-        )}
+        <Messages step={step} />
       </div>
     );
   }
