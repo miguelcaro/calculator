@@ -1,8 +1,8 @@
 import React from "react";
 
-const Icon = ({iconClass}) => {
+const Icon = ({ iconClass, modifierClass }) => {
   return (
-    <svg className={`icon icon-${iconClass}`}>
+    <svg className={`icon icon-${iconClass} ${modifierClass}`}>
       <use xlinkHref={`#icon-${iconClass}`} />
     </svg>
   );

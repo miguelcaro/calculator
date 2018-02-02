@@ -9,10 +9,16 @@ const footerCss = css`
   color: #c1c1c1;
   font-size: 13px;
   padding: 46px 0 74px;
+  @media (max-width: 620px) {
+    padding: 27px 0 42px;
+  }
 `;
 
 const logoCss = css`
   margin-bottom: 22px;
+  @media (max-width: 620px) {
+    margin-bottom: 36px;
+  }
 `;
 
 const navigationCss = css`
@@ -21,16 +27,28 @@ const navigationCss = css`
   font-weight: 700;
   line-height: 1.9230769231;
   margin-bottom: 39px;
+  @media (max-width: 620px) {
+    border-bottom: 1px solid #a8a8a8;
+    flex-direction: column;
+    margin-bottom: 17px;
+    padding-bottom: 21px;
+  }
 `;
 
 const copyrightCss = css`
   margin: 0;
+  @media (max-width: 620px) {
+    margin-bottom: 18px;
+  }
 `;
 
 const menuCss = css`
   display: flex;
   list-style: none;
   margin: 0;
+  @media (max-width: 620px) {
+    flex-direction: column;
+  }
 `;
 
 const linkCss = css`
@@ -42,6 +60,9 @@ const linkCss = css`
   }
   &:hover {
     text-decoration: underline;
+  }
+  @media (max-width: 620px) {
+    margin-left: 0;
   }
 `;
 

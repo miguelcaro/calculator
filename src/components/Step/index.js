@@ -6,10 +6,25 @@ export default styled("div")`
   padding: 39px 0;
   position: relative;
   text-align: center;
+  @media (max-width: 620px) {
+    margin: 0;
+    padding: 35px 0 29px;
+  }
   &:first-child {
-    border-top: 0 none;
+    @media (min-width: 620px) {
+      border-top: 0 none;
+    }
     .title {
       max-width: 354px;
+      @media (max-width: 620px) {
+        max-width: 123px;
+      }
+    }
+  }
+  .header {
+    @media (max-width: 620px) {
+      align-items: center;
+      display: flex;
     }
   }
   .icon {
@@ -18,6 +33,11 @@ export default styled("div")`
     position: absolute;
     top: 39px;
     font-size: 78px;
+    @media (max-width: 620px) {
+      font-size: 59px;
+      margin-right: 24px;
+      position: initial;
+    }
   }
   .title {
     color: #dcdcdc;
@@ -26,28 +46,58 @@ export default styled("div")`
     line-height: 1.0416666667;
     margin: 0 auto;
     max-width: 513px;
+    @media (max-width: 620px) {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.075;
+      margin: 0;
+      max-width: 182px;
+      text-align: left;
+    }
   }
   .subtitle {
     color: #dcdcdc;
+    display: block;
     font-size: 32px;
     font-weight: 400;
     letter-spacing: -1.4px;
     line-height: 1.265625;
     margin: 2px 0 0;
+    @media (max-width: 620px) {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0;
+      margin: 0;
+    }
   }
   .form {
     margin: 48px auto 0;
     max-width: 215px;
+    @media (max-width: 620px) {
+      margin-bottom: -15px;
+      margin-top: 31px;
+      max-width: 163px;
+    }
     &-resume {
       color: #dcdcdc;
       font-size: 42px;
       margin: 38px 0 0;
+      @media (max-width: 620px) {
+        font-size: 38px;
+        font-weight: 200;
+        line-height: 0.5657894737;
+        letter-spacing: -2.1px;
+        margin-top: 26px;
+      }
       small {
         font-size: 20px;
       }
       &.percentage {
         small {
           font-size: 22px;
+          @media (max-width: 620px) {
+            font-size: 20px;
+          }
         }
       }
     }
@@ -56,6 +106,10 @@ export default styled("div")`
       font-weight: 600;
       margin: 0 0 26px;
       white-space: nowrap;
+      @media (max-width: 620px) {
+        margin-left: -38px;
+        margin-right: -38px;
+      }
     }
   }
   &.current {
@@ -69,14 +123,25 @@ export default styled("div")`
     .subtitle {
       color: #414141;
       font-weight: 700;
+      @media (max-width: 620px) {
+        font-weight: 600;
+      }
     }
     .box {
       border: 2px solid #ad5091;
       padding: 32px 0 77px;
       margin: 0 -33px;
       position: relative;
+      @media (max-width: 620px) {
+        border-width: 1px;
+        margin: 0 0 13px;
+        padding: 24px 0 60px;
+      }
       .icon {
         left: 29px;
+        @media (max-width: 620px) {
+          margin-left: 2px;
+        }
       }
       .form-resume {
         color: #ad5091;
@@ -84,6 +149,11 @@ export default styled("div")`
         font-weight: 200;
         letter-spacing: -7.84px;
         line-height: 0.3070995671;
+        @media (max-width: 620px) {
+          font-size: 70px;
+          letter-spacing: -4.75px;
+          line-height: 0.3071428571;
+        }
         small {
           font-size: 49.5px;
           font-weight: 400;
@@ -92,6 +162,11 @@ export default styled("div")`
           position: relative;
           top: 8px;
           right: -18px;
+          @media (max-width: 620px) {
+            font-size: 30px;
+            right: -8px;
+            top: 4px;
+          }
         }
       }
       button {
@@ -101,6 +176,11 @@ export default styled("div")`
         outline: solid white;
         outline-width: 12px;
         transform: translateX(-50%);
+        white-space: nowrap;
+        @media (max-width: 620px) {
+          bottom: -18px;
+          outline-width: 6px;
+        }
       }
     }
   }

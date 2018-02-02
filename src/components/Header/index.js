@@ -6,6 +6,9 @@ import logo from "../../assets/images/logo.png";
 
 const headerCss = css`
   padding: 41px 11px 31px;
+  @media (max-width: 620px) {
+    padding: 32px 0 14px;
+  }
 `;
 
 const titleCss = css`

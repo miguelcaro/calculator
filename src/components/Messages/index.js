@@ -26,7 +26,7 @@ const Messages = ({ step }) => {
               I was
               <span>worried at first, </span>
               but they were so helpful and
-              <span>eased my mind</span>
+              <span className="inline">eased my mind</span>
               and helped me trhough <br /> the whole process.
               <br />
               <small>B.L.</small>
@@ -52,6 +52,7 @@ const Messages = ({ step }) => {
         <Message className="step4">
           <div className="content">
             <Icon iconClass={"stars-bubble"} />
+            <Icon iconClass={"stars"} modifierClass={"icon-mobile"} />
             <p>
               <span className="percentage">95%</span>
               of our clients report

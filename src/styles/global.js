@@ -1,6 +1,12 @@
-import { injectGlobal } from 'emotion'
+import { injectGlobal } from "emotion";
 
 injectGlobal`
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
 html {
   line-height: 1.4;
   -ms-text-size-adjust: 100%;
@@ -191,5 +197,4 @@ template {
 [hidden] {
   display: none;
 }
-`
-
+`;
