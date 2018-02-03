@@ -6,6 +6,12 @@ export default styled("div")`
   padding: 39px 0;
   position: relative;
   text-align: center;
+  @media (max-width: 900px) {
+    margin: 0 25px;
+  }
+  @media (max-width: 820px) {
+    margin: 0;
+  }
   @media (max-width: 620px) {
     margin: 0;
     padding: 35px 0 29px;
@@ -33,8 +39,10 @@ export default styled("div")`
     position: absolute;
     top: 39px;
     font-size: 78px;
-    @media (max-width: 620px) {
+    @media (max-width: 767px) {
       font-size: 59px;
+    }
+    @media (max-width: 620px) {
       margin-right: 24px;
       position: initial;
     }
@@ -46,6 +54,9 @@ export default styled("div")`
     line-height: 1.0416666667;
     margin: 0 auto;
     max-width: 513px;
+    @media (max-width: 767px) {
+      font-size: 25px;
+    }
     @media (max-width: 620px) {
       font-size: 20px;
       font-weight: 600;
