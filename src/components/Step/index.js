@@ -1,6 +1,8 @@
+import React from "react";
 import styled from "react-emotion";
+import { Watch } from "scrollmonitor-react";
 
-export default styled("div")`
+const Comp = styled("div")`
   border-top: 2px solid #e8e8e8;
   margin: 0 55px;
   padding: 39px 0;
@@ -29,7 +31,7 @@ export default styled("div")`
   }
   .header {
     @media (max-width: 620px) {
-      align-items: center;
+      align-items: flex-start;
       display: flex;
     }
   }
@@ -99,6 +101,7 @@ export default styled("div")`
         line-height: 0.5657894737;
         letter-spacing: -2.1px;
         margin-top: 26px;
+        text-align: left;
       }
       small {
         font-size: 20px;
@@ -164,6 +167,7 @@ export default styled("div")`
           font-size: 70px;
           letter-spacing: -4.75px;
           line-height: 0.3071428571;
+          text-align: center;
         }
         small {
           font-size: 49.5px;
@@ -196,3 +200,39 @@ export default styled("div")`
     }
   }
 `;
+
+class Step extends React.Component {
+  componentDidUpdate(prevProps, prevState) {
+    const {
+      isCompleted,
+      isFullyInViewport,
+      isAboveViewport,
+      isScrollingUp,
+      isScrollingDown,
+      currentStep,
+      goToStep,
+      setNewStep,
+      id
+    } = this.props;
+
+    if( (isCompleted && isFullyInViewport) && (Number(id.slice(-1)) !== currentStep) ){
+      if ((isScrollingUp && currentStep > 1) && (Number(id.slice(-1)) < currentStep)) {
+        goToStep(currentStep - 1);
+        setNewStep(currentStep - 1)
+      }
+    }
+
+    if( (isCompleted && isAboveViewport) && (Number(id.slice(-1)) !== currentStep) ){
+      if ((isScrollingDown && currentStep < 4) && (Number(id.slice(-1)) > currentStep)) {
+        goToStep(currentStep + 1);
+        setNewStep(currentStep + 1);
+      }
+    }
+  }
+
+  render() {
+    return <Comp {...this.props}>{this.props.children}</Comp>;
+  }
+}
+
+export default Watch(Step);

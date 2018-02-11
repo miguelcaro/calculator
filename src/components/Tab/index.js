@@ -9,9 +9,7 @@ const containerCss = css`
   font-weight: 800;
   line-height: 0.75;
   padding: 11px 31px 10px 95px;
-  position: absolute;
-  bottom: calc(100% + 3px);
-  right: -1px;
+  position: relative;
   @media (max-width: 620px) {
     bottom: 0;
     font-size: 10px;

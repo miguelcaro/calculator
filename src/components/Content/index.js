@@ -1,9 +1,9 @@
 import React from "react";
 import { css } from "react-emotion";
-import Tab from "../Tab";
 
 const containerCss = css`
-  border: 2px solid #dbdbdb;
+  border: 2px #dbdbdb;
+  border-style: none solid solid;
   margin-bottom: 29px;
   padding: 16px 12px 14px;
   position: relative;
@@ -42,7 +42,6 @@ const Content = ({ title, tabText, tabPhoneNumber, children }) => {
     <div className={containerCss}>
       <div className={contentHeaderCss}>
         <h2 className={titleCss}>{title}</h2>
-        <Tab text={tabText} phoneNumber={tabPhoneNumber} />
       </div>
       {children}
     </div>

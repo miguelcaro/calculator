@@ -83,7 +83,7 @@ const typeClass = type => {
   }
 };
 
-const Input = ({ type, value, placeholder, onChangeEvent }) => {
+const Input = ({ type, value, placeholder, onChangeEvent, isActive }) => {
   return (
     <div className={`${containerCss} ${typeClass(type)}`}>
       <input
@@ -92,6 +92,7 @@ const Input = ({ type, value, placeholder, onChangeEvent }) => {
         value={value}
         onChange={onChangeEvent}
         placeholder={placeholder}
+        autoFocus
       />
     </div>
   );

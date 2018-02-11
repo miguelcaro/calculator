@@ -16,11 +16,15 @@ const buttonCss = css`
     line-height: 1.075;
     padding: 7px 30px;
   }
+  &:disabled,
+  &[disabled] {
+    opacity: 0.5;
+  }
 `;
 
 const Button = ({ text, disabled, onClickEvent }) => {
   return (
-    <button className={buttonCss} disabled={disabled} onClick={onClickEvent}>
+    <button className={buttonCss} disabled={disabled} type={"submit"}>
       {text}
     </button>
   );
