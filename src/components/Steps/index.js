@@ -17,7 +17,9 @@ class Steps extends Component {
       isCompleted,
       goToStep,
       setNewStep,
-      scrollDirection
+      scrollDirection,
+      isLoading,
+      savings,
     } = this.props;
     return (
       <div>
@@ -118,7 +120,7 @@ class Steps extends Component {
                     onChangeEvent={setMonthlyMinimunPayment}
                   />
                   <Button
-                    disabled={form.monthlyMinimunPayment === ""}
+                    disabled={form.monthlyMinimunPayment === "" || isLoading}
                     text={"Next"}
                   />
                 </form>
@@ -152,7 +154,7 @@ class Steps extends Component {
             </div>
             {step === 4 && (
               <p className="form-resume">
-                <small>$</small> x,xxx.xx
+                <small>$</small> {savings}
               </p>
             )}
             {step === 4 && <Button text={"Get Started Now"} />}

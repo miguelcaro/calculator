@@ -3,6 +3,7 @@ import Link from "gatsby-link";
 import Content from "../components/Content";
 import Steps from "../components/Steps";
 import Messages from "../components/Messages";
+import { requestGetSavings } from '../requests/savings';
 
 class IndexPage extends Component {
   constructor() {
@@ -16,7 +17,9 @@ class IndexPage extends Component {
       },
       completed: false,
       scrollDirection: "",
-      lastScrollPos: 0
+      lastScrollPos: 0,
+      isLoading: false,
+      savings: 'xxxxx'
     };
     this.setDebtAmount = this.setDebtAmount.bind(this);
     this.setAnnualInterestRate = this.setAnnualInterestRate.bind(this);
@@ -26,6 +29,7 @@ class IndexPage extends Component {
     this.isCompleted = this.isCompleted.bind(this);
     this.goToStep = this.goToStep.bind(this);
     this.setNewStep = this.setNewStep.bind(this);
+    this.onGetSavings = this.onGetSavings.bind(this);
   }
 
   componentDidMount() {
@@ -38,7 +42,6 @@ class IndexPage extends Component {
   }
 
   handleScroll(event) {
-    console.log(this.state.step);
     if (this.state.lastScrollPos > event.target.scrollingElement.scrollTop) {
       this.setState({
         scrollDirection: "top",
@@ -108,16 +111,19 @@ class IndexPage extends Component {
 
   nextStep(event) {
     event.preventDefault();
-    this.setState(
+    if (this.state.step === 3) {
+      this.onGetSavings(this.state.step);
+    } else{
+      this.setState(
       state => ({
         step: state.step + 1
       }),
       () => {
-        debugger
         this.goToStep(this.state.step);
         this.isCompleted(this.state.step);
       }
     );
+    }
   }
 
   setNewStep(newStep) {
@@ -126,8 +132,24 @@ class IndexPage extends Component {
     });
   }
 
+  onGetSavings() {
+    const { debtAmount, monthlyMinimunPayment, annualInterestRate } = this.state.form;
+    this.setState({ isLoading: true });
+    requestGetSavings({
+      current: Number(debtAmount),
+      minimum: Number(monthlyMinimunPayment),
+      interest: annualInterestRate
+    }).then(({ data: { data: { attributes } } }) => {
+      const savings = attributes["total-savings"];
+      this.setState(state => ({ step: state.step + 1, isLoading: false, savings }), () => {
+          this.goToStep(this.state.step);
+          this.isCompleted(this.state.step);
+        });
+    });
+  }
+
   render() {
-    const { step, form, scrollDirection } = this.state;
+    const { step, form, scrollDirection, isLoading, savings } = this.state;
     const { isScrollingDown, isScrollingUp } = this.props;
     return (
       <div onScroll={this.handleScroll}>
@@ -143,6 +165,8 @@ class IndexPage extends Component {
             goToStep={this.goToStep}
             setNewStep={this.setNewStep}
             scrollDirection={scrollDirection}
+            isLoading={isLoading}
+            savings={savings}
           />
         </Content>
         <Messages step={step} />
