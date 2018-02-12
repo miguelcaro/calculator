@@ -4,7 +4,6 @@ import { Watch } from "scrollmonitor-react";
 
 const Comp = styled("div")`
   border-top: 2px solid #e8e8e8;
-  margin: 0 55px;
   padding: 39px 0;
   position: relative;
   text-align: center;
@@ -22,12 +21,6 @@ const Comp = styled("div")`
     @media (min-width: 620px) {
       border-top: 0 none;
     }
-    .title {
-      max-width: 354px;
-      @media (max-width: 620px) {
-        max-width: 123px;
-      }
-    }
   }
   .header {
     @media (max-width: 620px) {
@@ -40,7 +33,7 @@ const Comp = styled("div")`
     left: 0;
     position: absolute;
     top: 39px;
-    font-size: 78px;
+    font-size: 68px;
     @media (max-width: 767px) {
       font-size: 59px;
     }
@@ -51,11 +44,11 @@ const Comp = styled("div")`
   }
   .title {
     color: #dcdcdc;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 400;
     line-height: 1.0416666667;
     margin: 0 auto;
-    max-width: 513px;
+    max-width: 354px;
     @media (max-width: 767px) {
       font-size: 25px;
     }
@@ -144,7 +137,6 @@ const Comp = styled("div")`
     .box {
       border: 2px solid #ad5091;
       padding: 32px 0 77px;
-      margin: 0 -33px;
       position: relative;
       @media (max-width: 620px) {
         border-width: 1px;
@@ -207,23 +199,22 @@ class Step extends React.Component {
       isCompleted,
       isFullyInViewport,
       isAboveViewport,
-      isScrollingUp,
-      isScrollingDown,
       currentStep,
       goToStep,
       setNewStep,
-      id
+      id,
+      scrollDirection
     } = this.props;
 
     if( (isCompleted && isFullyInViewport) && (Number(id.slice(-1)) !== currentStep) ){
-      if ((isScrollingUp && currentStep > 1) && (Number(id.slice(-1)) < currentStep)) {
+      if ((scrollDirection === "top" && currentStep > 1) && (Number(id.slice(-1)) < currentStep)) {
         goToStep(currentStep - 1);
         setNewStep(currentStep - 1)
       }
     }
 
     if( (isCompleted && isAboveViewport) && (Number(id.slice(-1)) !== currentStep) ){
-      if ((isScrollingDown && currentStep < 4) && (Number(id.slice(-1)) > currentStep)) {
+      if ((scrollDirection === "bottom" && currentStep < 4) && (Number(id.slice(-1)) > currentStep)) {
         goToStep(currentStep + 1);
         setNewStep(currentStep + 1);
       }

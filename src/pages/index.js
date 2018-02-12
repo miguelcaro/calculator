@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import IsScrolling from "react-is-scrolling";
 import Link from "gatsby-link";
 import Content from "../components/Content";
 import Steps from "../components/Steps";
@@ -15,7 +14,9 @@ class IndexPage extends Component {
         annualInterestRate: "",
         monthlyMinimunPayment: ""
       },
-      completed: false
+      completed: false,
+      scrollDirection: "",
+      lastScrollPos: 0
     };
     this.setDebtAmount = this.setDebtAmount.bind(this);
     this.setAnnualInterestRate = this.setAnnualInterestRate.bind(this);
@@ -37,8 +38,19 @@ class IndexPage extends Component {
   }
 
   handleScroll(event) {
-    let scrollTop = document.documentElement.scrollTop;
-    if (this.state.completed) {
+    console.log(this.state.step);
+    if (this.state.lastScrollPos > event.target.scrollingElement.scrollTop) {
+      this.setState({
+        scrollDirection: "top",
+        lastScrollPos: event.target.scrollingElement.scrollTop
+      });
+    } else if (
+      this.state.lastScrollPos < event.target.scrollingElement.scrollTop
+    ) {
+      this.setState({
+        scrollDirection: "bottom",
+        lastScrollPos: event.target.scrollingElement.scrollTop
+      });
     }
   }
 
@@ -91,7 +103,7 @@ class IndexPage extends Component {
 
   goToStep(step) {
     const currentStep = document.getElementById("step" + step);
-    currentStep.scrollIntoView();
+    currentStep.scrollIntoView({ block: "start", behavior: "smooth" });
   }
 
   nextStep(event) {
@@ -101,6 +113,7 @@ class IndexPage extends Component {
         step: state.step + 1
       }),
       () => {
+        debugger
         this.goToStep(this.state.step);
         this.isCompleted(this.state.step);
       }
@@ -114,13 +127,11 @@ class IndexPage extends Component {
   }
 
   render() {
-    const { step, form } = this.state;
+    const { step, form, scrollDirection } = this.state;
     const { isScrollingDown, isScrollingUp } = this.props;
     return (
-      <div>
-        <Content
-          title={"Savings Calculator"}
-        >
+      <div onScroll={this.handleScroll}>
+        <Content title={"Savings Calculator"}>
           <Steps
             step={step}
             form={form}
@@ -131,8 +142,7 @@ class IndexPage extends Component {
             isCompleted={this.state.completed}
             goToStep={this.goToStep}
             setNewStep={this.setNewStep}
-            isScrollingDown={isScrollingDown}
-            isScrollingUp={isScrollingUp}
+            scrollDirection={scrollDirection}
           />
         </Content>
         <Messages step={step} />
@@ -141,4 +151,4 @@ class IndexPage extends Component {
   }
 }
 
-export default IsScrolling(IndexPage);
+export default IndexPage;

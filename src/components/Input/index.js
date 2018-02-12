@@ -60,11 +60,10 @@ const inputCss = css`
   box-sizing: border-box;
   font-family: "Nunito Sans", sans-serif;
   height: 61px;
-  font-size: 45px;
-  padding: 1px 19px 1px 35px;
+  font-size: 38px;
+  padding: 1px 19px 1px 45px;
   width: 100%;
   @media (max-width: 620px) {
-    font-size: 38px;
     font-weight: 200;
     height: 49px;
     letter-spacing: -2.1px;

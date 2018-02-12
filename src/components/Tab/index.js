@@ -5,10 +5,10 @@ import Icon from "../Icon";
 const containerCss = css`
   background-color: #2c87c8;
   color: white;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 800;
   line-height: 0.75;
-  padding: 11px 31px 10px 95px;
+  padding: 11px 31px 10px 33px;
   position: relative;
   @media (max-width: 620px) {
     bottom: 0;
@@ -34,7 +34,7 @@ const containerCss = css`
 
 const numberCss = css`
   display: block;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 12px;
   @media (max-width: 620px) {
     font-size: 10px;

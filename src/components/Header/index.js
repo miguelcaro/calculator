@@ -10,9 +10,6 @@ const headerCss = css`
   position: sticky;
   top: 0;
   z-index: 10;
-  @media (max-width: 620px) {
-    padding: 32px 0 14px;
-  }
 `;
 
 const headerContainerCss = css`
@@ -21,10 +18,14 @@ const headerContainerCss = css`
   display: flex;
   justify-content: space-between;
   padding: 41px 0px 0 11px;
+  @media (max-width: 620px) {
+    border-bottom: 0 none;
+    padding: 32px 0;
+  }
 `;
 
 const titleCss = css`
-  margin: 0 0 30px;
+  margin: 0 0 14px;
 `;
 
 const logoCss = css`

@@ -17,8 +17,7 @@ class Steps extends Component {
       isCompleted,
       goToStep,
       setNewStep,
-      isScrollingDown,
-      isScrollingUp
+      scrollDirection
     } = this.props;
     return (
       <div>
@@ -29,8 +28,7 @@ class Steps extends Component {
           currentStep={step}
           goToStep={goToStep}
           setNewStep={setNewStep}
-          isScrollingDown={isScrollingDown}
-          isScrollingUp={isScrollingUp}
+          scrollDirection={scrollDirection}
         >
           <div className="header">
             <Icon iconClass={"cards"} />
@@ -62,8 +60,7 @@ class Steps extends Component {
           currentStep={step}
           goToStep={goToStep}
           setNewStep={setNewStep}
-          isScrollingDown={isScrollingDown}
-          isScrollingUp={isScrollingUp}
+          scrollDirection={scrollDirection}
         >
           <div className="header">
             <Icon iconClass={"percentage"} />
@@ -105,8 +102,7 @@ class Steps extends Component {
           currentStep={step}
           goToStep={goToStep}
           setNewStep={setNewStep}
-          isScrollingDown={isScrollingDown}
-          isScrollingUp={isScrollingUp}
+          scrollDirection={scrollDirection}
         >
           <div className="header">
             <Icon iconClass={"payment"} />
@@ -144,8 +140,7 @@ class Steps extends Component {
           currentStep={step}
           goToStep={goToStep}
           setNewStep={setNewStep}
-          isScrollingDown={isScrollingDown}
-          isScrollingUp={isScrollingUp}
+          scrollDirection={scrollDirection}
         >
           <div className="box">
             <div className="header">
