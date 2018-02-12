@@ -206,22 +206,37 @@ class Step extends React.Component {
       scrollDirection
     } = this.props;
 
-    if( (isCompleted && isFullyInViewport) && (Number(id.slice(-1)) !== currentStep) ){
-      if ((scrollDirection === "top" && currentStep > 1) && (Number(id.slice(-1)) < currentStep)) {
+    if (isFullyInViewport && Number(id.slice(-1)) !== currentStep) {
+      if (
+        scrollDirection === "top" &&
+        currentStep > 1 &&
+        Number(id.slice(-1)) < currentStep
+      ) {
         goToStep(currentStep - 1);
-        setNewStep(currentStep - 1)
+        setNewStep(currentStep - 1);
+        window.scrollTo(0, window.scrollMonitor.viewportTop);
       }
     }
 
-    if( (isCompleted && isAboveViewport) && (Number(id.slice(-1)) !== currentStep) ){
-      if ((scrollDirection === "bottom" && currentStep < 4) && (Number(id.slice(-1)) > currentStep)) {
+    if (
+      isCompleted &&
+      isAboveViewport &&
+      Number(id.slice(-1)) !== currentStep
+    ) {
+      if (
+        scrollDirection === "bottom" &&
+        currentStep < 4 &&
+        Number(id.slice(-1)) > currentStep
+      ) {
         goToStep(currentStep + 1);
         setNewStep(currentStep + 1);
+        window.scrollTo(0, window.scrollMonitor.viewportTop - 118);
       }
     }
   }
 
   render() {
+    console.log(...this.props)
     return <Comp {...this.props}>{this.props.children}</Comp>;
   }
 }

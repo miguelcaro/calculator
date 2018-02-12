@@ -31,6 +31,7 @@ class Steps extends Component {
           goToStep={goToStep}
           setNewStep={setNewStep}
           scrollDirection={scrollDirection}
+          offsets={118}
         >
           <div className="header">
             <Icon iconClass={"cards"} />
@@ -63,6 +64,7 @@ class Steps extends Component {
           goToStep={goToStep}
           setNewStep={setNewStep}
           scrollDirection={scrollDirection}
+          offsets={118}
         >
           <div className="header">
             <Icon iconClass={"percentage"} />
@@ -105,6 +107,7 @@ class Steps extends Component {
           goToStep={goToStep}
           setNewStep={setNewStep}
           scrollDirection={scrollDirection}
+          offsets={118}
         >
           <div className="header">
             <Icon iconClass={"payment"} />
@@ -143,6 +146,7 @@ class Steps extends Component {
           goToStep={goToStep}
           setNewStep={setNewStep}
           scrollDirection={scrollDirection}
+          offsets={118}
         >
           <div className="box">
             <div className="header">

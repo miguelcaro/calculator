@@ -33,6 +33,7 @@ class IndexPage extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     document.documentElement.scrollIntoView();
     window.addEventListener("scroll", this.handleScroll);
   }
